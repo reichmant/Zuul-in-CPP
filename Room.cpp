@@ -15,34 +15,36 @@ using namespace std;
  * stores a reference to the neighboring room.
  * 
  * @author  Michael Kölling and David J. Barnes
+ * @author  Thomas Reichman
  * @version 2011.08.08
+ * @version 2015.10.05
  */
 
  Room::Room(string description){
-        this->description = description;
-}
+ 	this->description = description;
+ }
 
-void Room::setExit(string direc, Room neighbor){
-        exits[direc] = neighbor;
-}
-string Room::getShortDescription(){
-        return description;
-}
-string Room::getLongDescription(){
-        return "You are " + description + ".\n" + getExitString();
-}
-string Room::getExitString(){
-        string toreturn = "Exits:";
+ void Room::setExit(string direc, Room neighbor){
+ 	exits[direction] = neighbor;
+ }
+ string Room::getShortDescription(){
+ 	return description;
+ }
+ string Room::getLongDescription(){
+ 	return "Here's the description: You are " + description + ".\n" + getExitString();
+ }
+ string Room::getExitString(){
+ 	string toreturn = "Exits:";
 
-        for (map<string,Room>::iterator item = exits.begin(); item != exits.end();item++) {
-                toreturn += " " + item->first;
-        }
-        return toreturn;
-}
-Room *Room::getExit(string direc){
-        if (exits.find(direc) != exits.end())
-                return exits[direc];
-        return NULL;
-}
+ 	for (map<string,Room>::iterator item = exits.begin(); item != exits.end();item++) {
+ 		toreturn += " " + item->first;
+ 	}
+ 	return toreturn;
+ }
+ Room *Room::getExit(string direc){
+ 	if (exits.find(direc) != exits.end())
+ 		return exits[direc];
+ 	return NULL;
+ }
 
  

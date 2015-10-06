@@ -11,15 +11,15 @@ using namespace std;
 #ifndef COMMANDWORDS_H
 #define COMMANDWORDS_H
 
-class CommandWords
-{
+	class CommandWords
+	{
 	private:
 	//Instance Variables
-	vector<string> validCommands;
-	
-public:
+		vector<string> validCommands;
+		
+	public:
 		//constructors DON'T NEED VOID
-	CommandWords();
+		CommandWords();
 	bool isCommand(string aString); //DON'T NEED ASTRING
 	void showAll();
 

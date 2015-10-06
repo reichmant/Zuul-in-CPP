@@ -14,6 +14,7 @@
  * If the command had only one word, then the second word is <NULL>.
  *
  * @author  Michael Kölling and David J. Barnes
+ * @author  Thomas Reichman
  * @version 2011.08.08
  */
 #include "Command.h"

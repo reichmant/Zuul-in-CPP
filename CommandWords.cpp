@@ -12,17 +12,18 @@ using namespace std;
  * It is used to recognise commands as they are typed in.
  *
  * @author  Michael Kölling and David J. Barnes
+ * @author  Thomas Reichman
  * @version 2011.08.08
  */
 
-	CommandWords::CommandWords()
-{
-    vector<string> myList;
-	validCommands.push_back("go");
-	validCommands.push_back("quit");
-	validCommands.push_back("help");
-	for (vector<string>::iterator item = myList.begin();item != myList.end();item++)
-	{
+ CommandWords::CommandWords()
+ {
+ 	vector<string> myList;
+ 	validCommands.push_back("go");
+ 	validCommands.push_back("quit");
+ 	validCommands.push_back("help");
+ 	for (vector<string>::iterator item = myList.begin();item != myList.end();item++)
+ 	{
 		string word = *item; //dereference the item
 		cout << word;
 	}
@@ -31,11 +32,11 @@ using namespace std;
      * Check whether a given String is a valid command word. 
      * @return true if it is, false if it isn't.
      */
-    bool CommandWords::isCommand(string aString)
-    {
+     bool CommandWords::isCommand(string aString)
+     {
         for(int i = 0; i < aString.length(); i++) { //why is this aString
-            if(validCommands[i] == (aString))
-                return true;
+        	if(validCommands[i] == (aString))
+        		return true;
         }	
         // if we get here, the string was not found in the commands
         return false;
@@ -44,9 +45,9 @@ using namespace std;
     /**
      * Print all valid commands to System.out.
      */
-    void CommandWords::showAll() 
-    {
-		for(vector<string>::iterator command = validCommands.begin(); 
-			command != validCommands.end(); command++)
-			cout << *command;
-	}
+     void CommandWords::showAll() 
+     {
+     	for(vector<string>::iterator command = validCommands.begin(); 
+     		command != validCommands.end(); command++)
+     		cout << *command;
+     }

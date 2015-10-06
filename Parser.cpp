@@ -1,3 +1,8 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <cctype>
+#include <set>
 #include "Parser.h"
 
 using namespace std;
@@ -16,9 +21,9 @@ using namespace std;
  * returns a command object that is marked as an unknown command.
  * 
  * @author  Michael Kölling and David J. Barnes
- * @author  Uriel Flores
+ * @author  Thomas Reichman
  * @version 2011.08.08
- * @version 2015.10.03
+ * @version 2015.10.05
  */
 
       // source of command input
@@ -26,47 +31,87 @@ using namespace std;
     /**
      * Create a parser to read from the terminal window.
      */
-    Parser::Parser() 
-    {
-        commands = new CommandWords();
-    }
+     Parser::Parser() 
+     {
+     	//lol we don't need this
+     }
+
+
+/*
+     Parser::toLowerCase(string data)
+     {
+     	tolower('A');
+     	transform(data.begin(), data.end(), data.begin(), ::tolower);
+     	return data;
+     }
+*/
+
 
     /**
      * @return The next command from the user.
      */
-    Parser::getCommand() 
-    {
-                String inputLine;   // will hold the full input line
-        String word1 = null;
-        String word2 = null;
+     <setstring> Parser::getCommand() 
+     {
 
-        System.out.print("> ");     // print prompt
+               string inputLine;   // will hold the full input line
+               cin << inputLine;
+               string part1 = "";
+               string part2 = "";
 
-        inputLine = reader.nextLine();
+			cout << ("> ") << endl;     // print prompt
+			inputLine = toLowerCase(inputLine);
+			set<string> words;
+
+			int location = inputLine.find_first_of(" ");
+			while (location != string::npos) 
+			{
+				string word = inputLine.substr(0,location);
+				if (word != "") {
+					words.insert(word);
+				}
+          inputLine = inputLine.substr(location+1); // error here during class
+          location = inputLine.find_first_of(" ");
+     }
+        words.insert(inputLine); // down to one word
+        return words;
+/*
+
+			string delimiters = " ,";
+			int location;
+			int next = -1;
+			vector<string> words;
+			while
+			{
+
+			}
+
+
+
+			inputLine = reader.nextLine();
 
         // Find up to two words on the line.
-        Scanner tokenizer = new Scanner(inputLine);
+        /*Scanner tokenizer = new Scanner(inputLine);
         if(tokenizer.hasNext()) {
             word1 = tokenizer.next();      // get first word
             if(tokenizer.hasNext()) {
                 word2 = tokenizer.next();      // get second word
                 // note: we just ignore the rest of the input line.
-            }
-        }
-
+           }
+      }
+	*/
         // Now check whether this word is known. If so, create a command
         // with it. If not, create a "null" command (for unknown command).
-        if(commands.isCommand(word1)) {
-            return new Command(word1, word2);
-        }
-        else {
-            return new Command(null, word2); 
-        }
-    }
+      if(commands.isCommand(word1)) {
+      	return new Command(word1, word2);
+      }
+      else {
+      	return new Command(null, word2); 
+      } */
+      }
     /**
      * Print out a list of valid command words.
      */
-    void Parser::showCommands()
-    {
-        commands.showAll();
-    }
+     void Parser::showCommands()
+     {
+     	commands.showAll();
+     }

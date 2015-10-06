@@ -14,16 +14,16 @@ using namespace std;
 #define Room_H
 class Room
 {
-        private:
-                string description;
-                map<string,Room> exits;
-        public:
-                Room(string desc);
-                void setExit(string direction, Room neighbor);
-                string getShortDescription();
-                string getLongDescription();
-                string getExitString();
-                Room *getExit(string direc);
+private:
+	string description;
+	map<string,Room> exits;
+public:
+	Room(string desc);
+	void setExit(string direction, Room neighbor);
+	string getShortDescription();
+	string getLongDescription();
+	string getExitString();
+	Room *getExit(string direc);
 
 };
 

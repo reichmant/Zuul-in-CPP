@@ -20,21 +20,22 @@ using namespace std;
  *  executes the commands that the parser returns.
  * 
  * @author  Michael Kölling and David J. Barnes
+ * @author  Thomas Reichman
  * @version 2011.08.08
  */
 
 
 
-class Game 
-{
-	private:
-    Parser parser;
-    Room currentRoom;
-    void createRooms();
-    void printWelcome();
-    bool processCommand(Command command);
-    void printHelp();
-    void goRoom(Command command);
+ class Game 
+ {
+ private:
+ 	Parser parser;
+ 	Room currentRoom;
+ 	void createRooms();
+ 	void printWelcome();
+ 	bool processCommand(Command command);
+ 	void printHelp();
+ 	void goRoom(Command command);
     bool quit(Command command); //"Quit" was entered. Check the rest of the command to see
 
 public:
