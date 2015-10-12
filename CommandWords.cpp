@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 #include <vector>
 #include <cctype>
 #include <algorithm>
+=======
+//#include <vector>
+//#include <cctype>
+//#include <algorithm>
+>>>>>>> origin/master
 #include "CommandWords.h"
 using namespace std;
 
@@ -14,6 +20,7 @@ using namespace std;
  * @author  Michael Kölling and David J. Barnes
  * @author  Thomas Reichman
  * @version 2011.08.08
+<<<<<<< HEAD
  * @version 2015.10.12
  */
      /**
@@ -30,6 +37,21 @@ using namespace std;
 	//	string word = *item; //dereference the item
 	//	cout << word;
 	//}
+=======
+ */
+
+ CommandWords::CommandWords()
+ {
+ 	vector<string> myList;
+ 	validCommands.push_back("go");
+ 	validCommands.push_back("quit");
+ 	validCommands.push_back("help");
+ 	for (vector<string>::iterator item = myList.begin();item != myList.end();item++)
+ 	{
+		string word = *item; //dereference the item
+		cout << word;
+	}
+>>>>>>> origin/master
 }
     /**
      * Check whether a given String is a valid command word. 

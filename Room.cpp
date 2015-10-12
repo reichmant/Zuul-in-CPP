@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <iostream>
 #include <set>
 #include <string>
@@ -6,6 +7,12 @@
 #include "Room.h"
 //#include "Command.h"
 //#include "CommandWords.h"
+=======
+#include "Game.h"
+#include "Room.h"
+#include "Command.h"
+#include "CommandWords.h"
+>>>>>>> origin/master
 using namespace std;
 
 /**
@@ -21,6 +28,7 @@ using namespace std;
  * @author  Michael Kölling and David J. Barnes
  * @author  Thomas Reichman
  * @version 2011.08.08
+<<<<<<< HEAD
  * @version 2015.10.12
  */
  Room::Room()
@@ -95,3 +103,36 @@ using namespace std;
      	//cout << NULL << endl;
      	}
      }
+=======
+ * @version 2015.10.05
+ */
+
+ Room::Room(string description){
+ 	this->description = description;
+ }
+
+ void Room::setExit(string direc, Room neighbor){
+ 	exits[direction] = neighbor;
+ }
+ string Room::getShortDescription(){
+ 	return description;
+ }
+ string Room::getLongDescription(){
+ 	return "Here's the description: You are " + description + ".\n" + getExitString();
+ }
+ string Room::getExitString(){
+ 	string toreturn = "Exits:";
+
+ 	for (map<string,Room>::iterator item = exits.begin(); item != exits.end();item++) {
+ 		toreturn += " " + item->first;
+ 	}
+ 	return toreturn;
+ }
+ Room *Room::getExit(string direc){
+ 	if (exits.find(direc) != exits.end())
+ 		return exits[direc];
+ 	return NULL;
+ }
+
+ 
+>>>>>>> origin/master

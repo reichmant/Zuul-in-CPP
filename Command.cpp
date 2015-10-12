@@ -68,8 +68,12 @@
 		{
 			return false;
 		}
+<<<<<<< HEAD
 		//else{
 		//	return true;
 		//}//return (secondWord != NULL);
+=======
+		//return (secondWord != NULL);
+>>>>>>> origin/master
 	}
 
