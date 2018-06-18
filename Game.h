@@ -1,19 +1,11 @@
-<<<<<<< HEAD
-//#ifndef GAME_H
-//#define GAME_H
+#ifndef GAME_H
+#define GAME_H
 
 #include <iostream>
 #include <string>
 #include <map>
 //#include <Command.h>
 //#include <CommandWords.h>
-=======
-#ifndef GAME_H
-#define GAME_H
-
-#include <iostream>
-#include <string>
->>>>>>> origin/master
 #include "Room.h"
 #include "Parser.h"
 using namespace std;
@@ -33,6 +25,7 @@ using namespace std;
  * @author  Michael Kölling and David J. Barnes
  * @author  Thomas Reichman
  * @version 2011.08.08
+ * @versoin 2015.08.12
  */
 
 
@@ -41,12 +34,8 @@ using namespace std;
  {
  private:
  	Parser parser;
-<<<<<<< HEAD
  	Room* currentRoom;
  	string commandWord;
-=======
- 	Room currentRoom;
->>>>>>> origin/master
  	void createRooms();
  	void printWelcome();
  	bool processCommand(Command command);

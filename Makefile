@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 #@author Thomas Reichman
-=======
->>>>>>> origin/master
 CC = g++
 
 all: zuul

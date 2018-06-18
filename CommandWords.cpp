@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 #include <vector>
-#include <cctype>
-#include <algorithm>
-=======
-//#include <vector>
 //#include <cctype>
-//#include <algorithm>
->>>>>>> origin/master
+//#include <algorithm> //why do I even have these? I hop they're not needed.
 #include "CommandWords.h"
 using namespace std;
 
@@ -20,7 +14,6 @@ using namespace std;
  * @author  Michael Kölling and David J. Barnes
  * @author  Thomas Reichman
  * @version 2011.08.08
-<<<<<<< HEAD
  * @version 2015.10.12
  */
      /**
@@ -28,30 +21,15 @@ using namespace std;
      */
  CommandWords::CommandWords()
  {
- 	vector<string> validCommands;
- 	validCommands.push_back("go");
- 	validCommands.push_back("quit");
- 	validCommands.push_back("help");
- 	//for (vector<string>::iterator item = validCommands.begin();item != validCommands.end();item++)
- 	//{
-	//	string word = *item; //dereference the item
-	//	cout << word;
-	//}
-=======
- */
-
- CommandWords::CommandWords()
- {
- 	vector<string> myList;
- 	validCommands.push_back("go");
- 	validCommands.push_back("quit");
- 	validCommands.push_back("help");
- 	for (vector<string>::iterator item = myList.begin();item != myList.end();item++)
- 	{
-		string word = *item; //dereference the item
-		cout << word;
-	}
->>>>>>> origin/master
+    //vector<string> validCommands;
+    validCommands.push_back("go");
+    validCommands.push_back("quit");
+    validCommands.push_back("help");
+    //for (vector<string>::iterator item = validCommands.begin();item != validCommands.end();item++)
+    //{
+    //  string word = *item; //dereference the item
+    //  cout << word;
+    //}
 }
     /**
      * Check whether a given String is a valid command word. 
@@ -59,10 +37,10 @@ using namespace std;
      */
      bool CommandWords::isCommand(string aString)
      {
-        for(int i = 0; i < aString.length(); i++) { //why is this aString
-        	if(validCommands[i] == (aString))
-        		return true;
-        }	
+        for(int i = 0; i < validCommands.size(); i++) { //why is this aString
+            if(validCommands[i] == (aString))
+                return true;
+        }   
         // if we get here, the string was not found in the commands
         return false;
     }
@@ -72,7 +50,7 @@ using namespace std;
      */
      void CommandWords::showAll() 
      {
-     	for(vector<string>::iterator command = validCommands.begin(); 
-     		command != validCommands.end(); command++)
-     		cout << *command;
+        for(vector<string>::iterator command = validCommands.begin(); 
+            command != validCommands.end(); command++)
+            cout << *command;
      }

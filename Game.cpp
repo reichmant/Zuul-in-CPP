@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 #include <iostream>
 #include <string>
-=======
->>>>>>> origin/master
 #include "Game.h"
 /**
  *  This class is the main class of the "World of Zuul" application. 
@@ -20,10 +17,7 @@
  * @author  Michael Kölling and David J. Barnes
  * @author  Thomas Reichman
  * @version 2011.08.08
-<<<<<<< HEAD
  * @version 2015.08.12
-=======
->>>>>>> origin/master
  */
 
     /**
@@ -31,12 +25,8 @@
      */
      Game::Game() 
      {
-     	createRooms();
-<<<<<<< HEAD
-     	//parser = Parser();
-=======
-     	parser = new Parser();
->>>>>>> origin/master
+        createRooms();
+        //parser = Parser();
      }
 
     /**
@@ -44,60 +34,35 @@
      */
      void Game::createRooms()
      {
-<<<<<<< HEAD
-     	//new Room outside, theater, pub, lab, office;
+        //new Room outside, theater, pub, lab, office;
 
         // create the rooms
-     	Room *outside = new Room();//we can't set description here, so
-     	Room *theater = new Room();//just make a new method for that later.
-     	Room *pub = new Room();//after all, the method is in Room.
-     	Room *lab = new Room();
-     	Room *office = new Room();
+        Room *outside = new Room();//we can't set description here, so
+        Room *theater = new Room();//just make a new method for that later.
+        Room *pub = new Room();//after all, the method is in Room.
+        Room *lab = new Room();
+        Room *office = new Room();
 
-     	outside-> setDescription("outside the main entrance of the university");
-     	theater-> setDescription("in a lecture theater");
-     	pub-> setDescription("in the campus pub");
-     	lab-> setDescription("in a computing lab");
-     	office-> setDescription("in the computing admin office");
+        outside-> setDescription("outside the main entrance of the university");
+        theater-> setDescription("in a lecture theater");
+        pub-> setDescription("in the campus pub");
+        lab-> setDescription("in a computing lab");
+        office-> setDescription("in the computing admin office");
 
 
         // initialise room exits
-     	outside->setExit("east", theater);
-     	outside->setExit("south", lab);
-     	outside->setExit("west", pub);
+        outside->setExit("east", theater);
+        outside->setExit("south", lab);
+        outside->setExit("west", pub);
 
-     	theater->setExit("west", outside);
+        theater->setExit("west", outside);
 
-     	pub->setExit("east", outside);
+        pub->setExit("east", outside);
 
-     	lab->setExit("north", outside);
-     	lab->setExit("east", office);
+        lab->setExit("north", outside);
+        lab->setExit("east", office);
 
-     	office->setExit("west", lab);
-=======
-     	Room outside, theater, pub, lab, office;
-
-        // create the rooms
-     	outside = new Room("outside the main entrance of the university");
-     	theater = new Room("in a lecture theater");
-     	pub = new Room("in the campus pub");
-     	lab = new Room("in a computing lab");
-     	office = new Room("in the computing admin office");
-
-        // initialise room exits
-     	outside.setExit("east", theater);
-     	outside.setExit("south", lab);
-     	outside.setExit("west", pub);
-
-     	theater.setExit("west", outside);
-
-     	pub.setExit("east", outside);
-
-     	lab.setExit("north", outside);
-     	lab.setExit("east", office);
-
-     	office.setExit("west", lab);
->>>>>>> origin/master
+        office->setExit("west", lab);
 
         currentRoom = outside;  // start game outside
     }
@@ -107,24 +72,19 @@
      */
      void Game::play() 
      {            
-     	printWelcome();
+        printWelcome();
 
         // Enter the main command loop.  Here we repeatedly read commands and
         // execute them until the game is over.
 
-     	bool finished = false;
-<<<<<<< HEAD
-     	//while (! finished) {
-     	while (finished == false) {     		
-     		Command command = parser.getCommand();
-     		cout << command.getCommandWord() << endl;//
-=======
-     	while (! finished) {
-     		Command command = parser.getCommand();
->>>>>>> origin/master
-     		finished = processCommand(command);
-     	}
-     	cout << "Thank you for playing.  Good bye." << endl;
+        bool finished = false;
+        //while (! finished) {
+        while (finished == false) {             
+            Command command = parser.getCommand();
+            //cout << command.getCommandWord() << endl;//this was just testing to prove we get a command.
+            finished = processCommand(command);
+        }
+        cout << "Thank you for playing.  Good bye." << endl;
      }
 
     /**
@@ -132,20 +92,12 @@
      */
      void Game::printWelcome()
      {
-     	cout << endl;
-<<<<<<< HEAD
-     	cout << "Welcome to the World of Zuul! HOLY CRAP IT COMPILED" << endl;
-     	cout << "World of Zuul is a new, incredibly boring adventure game... BUT HOLY CRAP IT COMPILED!" << endl;
-     	cout << "Type 'help' if you need help." << endl;
-     	cout << endl;
-     	cout << currentRoom-> getLongDescription() << endl;
-=======
-     	cout << "Welcome to the World of Zuul!" << endl;
-     	cout << "World of Zuul is a new, incredibly boring adventure game." << endl;
-     	cout << "Type 'help' if you need help." << endl;
-     	cout << endl;
-     	cout << currentRoom.getLongDescription() << endl;
->>>>>>> origin/master
+        cout << endl;
+        cout << "Welcome to the World of Zuul! HOLY CRAP IT COMPILED" << endl;
+        cout << "World of Zuul is a new, incredibly boring adventure game... BUT HOLY CRAP IT COMPILED!" << endl;
+        cout << "Type 'help' if you need help." << endl;
+        cout << endl;
+        cout << currentRoom-> getLongDescription() << endl;
      }
 
     /**
@@ -155,29 +107,25 @@
      */
      bool Game::processCommand(Command command) 
      {
-     	bool wantToQuit = false;
+        bool wantToQuit = false;
 
-     	if(command.isUnknown()) {
-     		cout << "I don't know what you mean..." << endl;
-     		return false;
-     	}
+        if(command.isUnknown()) {
+            cout << "I don't know what you mean..." << endl;
+            return false;
+        }
 
-<<<<<<< HEAD
-     	string commandWord = command.getCommandWord();
-=======
-     	String commandWord = command.getCommandWord();
->>>>>>> origin/master
-     	if (commandWord == "help") {
-     		printHelp();
-     	}
-     	else if (commandWord == "go") {
-     		goRoom(command);
-     	}
-     	else if (commandWord == "quit") {
-     		wantToQuit = quit(command);
-     	}
+        string commandWord = command.getCommandWord();
+        if (commandWord == "help") {
+            printHelp();
+        }
+        else if (commandWord == "go") {
+            goRoom(command);
+        }
+        else if (commandWord == "quit") {
+            wantToQuit = quit(command);
+        }
         // else command not recognised.
-     	return wantToQuit;
+        return wantToQuit;
      }
 
     // implementations of user commands:
@@ -189,14 +137,11 @@
      */
      void Game::printHelp() 
      {
-<<<<<<< HEAD
-     	//cout << "3" << endl; //TESTING to see if we reach this point
-=======
->>>>>>> origin/master
-     	cout << "You are lost. You are alone. You wander" << endl;
-     	cout << "around at the university." << endl << endl;
-     	cout << "Your command words are:" << endl;
-     	parser.showCommands();
+        //cout << "3" << endl; //TESTING to see if we reach this point
+        cout << "You are lost. You are alone. You wander" << endl;
+        cout << "around at the university." << endl << endl;
+        cout << "Your command words are:" << endl;
+        parser.showCommands();
      }
 
     /** 
@@ -205,37 +150,26 @@
      */
      void Game::goRoom(Command command) 
      {
-     	if(!command.hasSecondWord()) {
+        if(!command.hasSecondWord()) {
             // if there is no second word, we don't know where to go...
-     		cout << "Go where?" << endl;
-     		return;
-     	}
+            cout << "Go where?" << endl;
+            return;
+        }
 
-<<<<<<< HEAD
-     	string direction = command.getSecondWord();
-     	cout << direction << endl;
+        string direction = command.getSecondWord();
+        //cout << direction << endl; //just testing again.
+
+        
         // Try to leave current room.
-     	Room* nextRoom = currentRoom->getExit(direction);
+        Room* nextRoom = currentRoom->getExit(direction);
 
-     	if (nextRoom == NULL) {
-=======
-     	String direction = command.getSecondWord();
-
-        // Try to leave current room.
-     	Room nextRoom = currentRoom.getExit(direction);
-
-     	if (nextRoom == null) {
->>>>>>> origin/master
-     		cout << "There is no door!" << endl;
-     	}
-     	else {
-     		currentRoom = nextRoom;
-<<<<<<< HEAD
-     		cout << currentRoom->getLongDescription() << endl;
-=======
-     		cout << currentRoom.getLongDescription() << endl;
->>>>>>> origin/master
-     	}
+        if (nextRoom == NULL) {
+            cout << "There is no door!" << endl;
+        }
+        else {
+            currentRoom = nextRoom;
+            cout << currentRoom->getLongDescription() << endl;
+        }
      }
 
     /** 
@@ -245,11 +179,11 @@
      */
      bool Game::quit(Command command) 
      {
-     	if(command.hasSecondWord()) {
-     		cout << "Quit what?" << endl;
-     		return false;
-     	}
-     	else {
+        if(command.hasSecondWord()) {
+            cout << "Quit what?" << endl;
+            return false;
+        }
+        else {
             return true;  // signal that we want to quit
         }
     }

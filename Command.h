@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 //@author Thomas Reichman
-=======
->>>>>>> origin/master
 #include <iostream>
 #include <string>
 using namespace std;
@@ -28,4 +25,3 @@ using namespace std;
 	};
 
 #endif
-

@@ -1,21 +1,12 @@
-<<<<<<< HEAD
 //#include <iostream>
-//#include <string>
-#include <algorithm>
-#include <cctype>
+//#include <string> //sorry for the unneeded stuff, but I leave it just in case.
+//#include <algorithm>
+//#include <cctype>
 #include <sstream>
 //#include <set>
 #include "Parser.h"
 #include "Command.h"
 #include "CommandWords.h"
-=======
-#include <iostream>
-#include <string>
-#include <algorithm>
-#include <cctype>
-#include <set>
-#include "Parser.h"
->>>>>>> origin/master
 
 using namespace std;
 
@@ -35,11 +26,7 @@ using namespace std;
  * @author  Michael Kölling and David J. Barnes
  * @author  Thomas Reichman
  * @version 2011.08.08
-<<<<<<< HEAD
  * @version 2015.10.12
-=======
- * @version 2015.10.05
->>>>>>> origin/master
  */
 
       // source of command input
@@ -49,20 +36,17 @@ using namespace std;
      */
      Parser::Parser() 
      {
-<<<<<<< HEAD
-     	//CommandWords* commands = new CommandWords(); //lol we don't need this
-=======
-     	//lol we don't need this
->>>>>>> origin/master
+        //CommandWords* commands = new CommandWords(); //lol we don't need this
      }
 
 
 /*
-     Parser::toLowerCase(string data)
+     Parser::toLowerCase(string data)   //I assume people aren't dumb enough to hold down shift
+                                        //or CapsLock.
      {
-     	tolower('A');
-     	transform(data.begin(), data.end(), data.begin(), ::tolower);
-     	return data;
+        tolower('A');
+        transform(data.begin(), data.end(), data.begin(), ::tolower);
+        return data;
      }
 */
 
@@ -70,11 +54,10 @@ using namespace std;
     /**
      * @return The next command from the user.
      */
-<<<<<<< HEAD
      Command Parser::getCommand() 
      {
-     	//string Command1 = "";
-     	string inputLine = "";   // will hold the full input line
+        //string Command1 = "";
+        string inputLine = "";   // will hold the full input line
         string word1 = "";
         string word2 = "";
 
@@ -86,32 +69,41 @@ using namespace std;
         iss >> word2;
         //while(iss >> word)
         //{
-        //	if(word1 != "")
-        //	{
-        //		word2 = word;
-        //	}
-        //	else
-        //		{
-        //			word1 = word;
-        //		}
+        //  if(word1 != "")
+        //  {
+        //      word2 = word;        //so since you showed me that other thing with the above 2 lines                                    
+        //  }                        //I assume this stuff is obsolete?
+        //  else
+        //      {
+        //          word1 = word;
+        //      }
         //}
 
         //cout << word1 + word2 << endl; //TESTING. here 
-        cout << word1 << endl;
-        cout << word2 << endl;
+        
+
+        //-------------------------------------------------------------------------------
+        //cout << word1 << endl; //this is just testing stuff, to show that Parser works.
+                                 //it should output whatever you input.
+        //cout << word2 << endl; //this is just testing stuff, to show that Parser works.
+        //-------------------------------------------------------------------------------
+        
+
+
         //Check whether this word is recognized. Create command if it is,
         //but make null command if not.
         if (commands.isCommand(word1))
         {
-        	return Command(word1, word2);
+            return Command(word1, word2);
         }
         else {
-        	return Command("", word2);        	
+            return Command("", word2);          
         }
         
 
 
-
+        //the rest of this method is a whole bunch of other ways I tried to accomplish
+        //splitting. You can ignore it, unless you want to see
         /*cout << "> " << endl;     // print prompt
 
         inputLine = reader.nextLine();
@@ -125,7 +117,7 @@ using namespace std;
                 // note: we just ignore the rest of the input line.
             }
         }
-	*/
+    */
 
 
 /*
@@ -137,16 +129,16 @@ using namespace std;
                int location;
                int next = -1;
 
-			cout << ("> ") << endl;     // print prompt
+            cout << ("> ") << endl;     // print prompt
 
-			vector<string> myList;
-			myList.push_back("go");
-			myList.push_back("quit");
-			myList.push_back("help");
-			for (vector<string>::iterator item = myList.begin();
-				item != myList.end();
-				item++)
-			{
+            vector<string> myList;
+            myList.push_back("go");
+            myList.push_back("quit");
+            myList.push_back("help");
+            for (vector<string>::iterator item = myList.begin();
+                item != myList.end();
+                item++)
+            {
             string word = *item; // dereference the item
             cout << word;
             
@@ -154,51 +146,30 @@ using namespace std;
             
             if(commands.isCommand(word1)) 
             {
-            	return Command(word1, word2);
+                return Command(word1, word2);
             }
             else {
-            	return Command(0, word2);
-            	location = next + 1;
+                return Command(0, word2);
+                location = next + 1;
             next = inputLine.find_first_of( splitAt, location );
             cout << inputLine.substr( location, next - location ) << endl;
             inputLine.push_back( location );
 
-            	
+                
 
-            	
+                
 /*
 
-            	inputLine = toLowerCase(inputLine);
-            	set<string> words;
+                inputLine = toLowerCase(inputLine);
+                set<string> words;
 
-            	int location = inputLine.find_first_of(" ");
-            	while (location != string::npos) 
-            	{
-            		string word = inputLine.substr(0,location);
-            		if (word != "") {
-            			words.insert(word);
-            		}
-=======
-     <setstring> Parser::getCommand() 
-     {
-
-               string inputLine;   // will hold the full input line
-               cin << inputLine;
-               string part1 = "";
-               string part2 = "";
-
-			cout << ("> ") << endl;     // print prompt
-			inputLine = toLowerCase(inputLine);
-			set<string> words;
-
-			int location = inputLine.find_first_of(" ");
-			while (location != string::npos) 
-			{
-				string word = inputLine.substr(0,location);
-				if (word != "") {
-					words.insert(word);
-				}
->>>>>>> origin/master
+                int location = inputLine.find_first_of(" ");
+                while (location != string::npos) 
+                {
+                    string word = inputLine.substr(0,location);
+                    if (word != "") {
+                        words.insert(word);
+                    }
           inputLine = inputLine.substr(location+1); // error here during class
           location = inputLine.find_first_of(" ");
      }
@@ -206,28 +177,18 @@ using namespace std;
         return words;
 /*
 
-<<<<<<< HEAD
-=======
-			string delimiters = " ,";
-			int location;
-			int next = -1;
->>>>>>> origin/master
-			vector<string> words;
-			while
-			{
+            vector<string> words;
+            while
+            {
 
-			}
+            }
 
 
 
-			inputLine = reader.nextLine();
+            inputLine = reader.nextLine();
 
         // Find up to two words on the line.
-<<<<<<< HEAD
         /* Scanner tokenizer = new Scanner(inputLine);
-=======
-        /*Scanner tokenizer = new Scanner(inputLine);
->>>>>>> origin/master
         if(tokenizer.hasNext()) {
             word1 = tokenizer.next();      // get first word
             if(tokenizer.hasNext()) {
@@ -235,30 +196,21 @@ using namespace std;
                 // note: we just ignore the rest of the input line.
            }
       }
-<<<<<<< HEAD
-	*/ /*
-=======
-	*/
->>>>>>> origin/master
+    */ /*
         // Now check whether this word is known. If so, create a command
         // with it. If not, create a "null" command (for unknown command).
       if(commands.isCommand(word1)) {
-      	return new Command(word1, word2);
+        return new Command(word1, word2);
       }
       else {
-      	return new Command(null, word2); 
-<<<<<<< HEAD
+        return new Command(null, word2); 
       */
       }
 
-=======
-      } */
-      }
->>>>>>> origin/master
     /**
      * Print out a list of valid command words.
      */
      void Parser::showCommands()
      {
-     	commands.showAll();
+        commands.showAll();
      }

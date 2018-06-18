@@ -64,16 +64,15 @@
 	*/
 	bool Command::hasSecondWord()
 	{
-		if (secondWord.empty())
+		return (secondWord != "");
+		/*if (secondWord.empty())
 		{
 			return false;
 		}
-<<<<<<< HEAD
-		//else{
-		//	return true;
-		//}//return (secondWord != NULL);
-=======
+		else
+		{
+			return true;
+		}*/
 		//return (secondWord != NULL);
->>>>>>> origin/master
 	}
 

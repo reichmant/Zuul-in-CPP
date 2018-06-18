@@ -1,14 +1,8 @@
-<<<<<<< HEAD
 //@author Thomas Reichman
 #include <iostream>
 #include <string>
 #include <vector>
-#include <new>
-=======
-#include <iostream>
-#include <string>
-#include <vector>
->>>>>>> origin/master
+//#include <new> //once again, unneeded stuff?
 //#include <cctype>
 //#include <algorithm>
 using namespace std;
@@ -28,11 +22,7 @@ using namespace std;
 	public:
 		//constructors DON'T NEED VOID
 		CommandWords();
-<<<<<<< HEAD
 	bool isCommand(string aString); //DON'T NEED ASTRING?
-=======
-	bool isCommand(string aString); //DON'T NEED ASTRING
->>>>>>> origin/master
 	void showAll();
 
 
