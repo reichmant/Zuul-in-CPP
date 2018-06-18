@@ -1,5 +1,5 @@
 # Zuul in C++
-## Text based game in Java
+## Convert of a text based game in Java -> C++
 Originally a project for a Data Structures & Algorithms class. Used to learn C++ from a project we already did in Java.
 
 In this case, to make a fair starting ground for all students, the entire class cloned an [existing project](https://github.com/ryanseys/zuul).
